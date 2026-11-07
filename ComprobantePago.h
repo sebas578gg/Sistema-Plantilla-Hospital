@@ -4,6 +4,8 @@
 #include "Departamento.h"
 using namespace std;
 
+// Relaciona a un Empleado con su Departamento para registrar el pago emitido.
+// Ojo para la defensa: Usa punteros (asociacion) para referenciar los objetos sin duplicarlos en memoria.
 class ComprobantePago {
 private:
 	Empleado* empleado; 
