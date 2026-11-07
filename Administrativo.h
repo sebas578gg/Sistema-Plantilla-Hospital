@@ -1,3 +1,4 @@
+//Clase Derivada
 #ifndef ADMINISTRATIVO_H
 #define ADMINISTRATIVO_H
 #include "Empleado.h"
