@@ -1,3 +1,6 @@
+
+// Lee empleados.txt, parsea cada linea separada por comas y reconstruye los objetos en memoria con 'new'.
+
 #include "ControladorPlanilla.h"
 #include "Medico.h"
 #include "Enfermero.h"
