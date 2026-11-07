@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// Constructor: inicializa el controlador con ArchivoTexto y carga los datos desde disco a las listas.
 Menu::Menu() {
 	ArchivoTexto* archivo = new ArchivoTexto();
 	ctrl = new ControladorPlanilla(archivo);
@@ -14,6 +15,9 @@ Menu::Menu() {
 	ctrl->cargarEmpleados(empleados);
 	ctrl->cargarDepartamentos(departamentos);
 }
+// Destructor: CLAVE PARA LA DEFENSA.
+// La clase Lista solo libera sus Nodos; los objetos Empleado y Departamento creados con 'new'
+// deben liberarse aqui explicitamente con delete para evitar fugas de memoria (memory leaks).
 
 Menu::~Menu() {
 	delete ctrl;
@@ -23,6 +27,7 @@ Menu::~Menu() {
 	while(actD) { delete actD->dato; actD = actD->siguiente; }
 }
 
+// Bucle principal de la aplicacion: despliega el menu de opciones por consola.
 void Menu::iniciar() {
 	int opcion;
 	do {
@@ -47,7 +52,7 @@ void Menu::iniciar() {
 		}
 	} while(opcion != 0);
 }
-
+// Pide datos y crea dinamicamente con 'new' la instancia de la subclase elegida (Polimorfismo).
 void Menu::registrarEmpleado() {
 	int tipo;
 	string c, n, e; double s;
@@ -67,7 +72,7 @@ void Menu::registrarEmpleado() {
 	ctrl->guardarEmpleados(empleados);
 	cout << "Empleado guardado con exito.\n";
 }
-
+// Recorre la lista invocando calcularSalarioNeto() polimorficamente en tiempo de ejecucion.
 void Menu::listarEmpleados() {
 	Nodo<Empleado*>* act = empleados.getCabeza();
 	if(!act) cout << "No hay empleados.\n";
@@ -77,7 +82,7 @@ void Menu::listarEmpleados() {
 		act = act->siguiente;
 	}
 }
-
+// Busca por cedula, libera con 'delete' el empleado encontrado y actualiza la lista.
 void Menu::eliminarEmpleado() {
 	string cedula;
 	cout << "Cedula a eliminar: "; cin >> cedula;
@@ -88,7 +93,7 @@ void Menu::eliminarEmpleado() {
 	
 	while(act) {
 		if(act->dato->getCedula() == cedula) {
-			delete act->dato; 
+			delete act->dato; // Libera la memoria del objeto en el Heap
 			encontrado = true;
 		} else {
 			nuevaLista.agregar(act->dato);
@@ -96,7 +101,7 @@ void Menu::eliminarEmpleado() {
 		act = act->siguiente;
 	}
 	
-	empleados.limpiarNodos(); 
+	empleados.limpiarNodos(); // Transfiere los punteros restantes sin duplicar memoria
 	empleados = nuevaLista; 
 	
 	if(encontrado) {
@@ -106,7 +111,7 @@ void Menu::eliminarEmpleado() {
 		cout << "Empleado no encontrado.\n";
 	}
 }
-
+// Submenu para crear departamentos y asociarles puestos de trabajo.
 void Menu::menuDepartamentos() {
 	int op;
 	cout << "1. Crear Depto | 2. Agregar Puesto | 3. Ver Deptos: "; cin >> op;
@@ -136,7 +141,7 @@ void Menu::menuDepartamentos() {
 	}
 	ctrl->guardarDepartamentos(departamentos);
 }
-
+// Busca el empleado y el departamento para generar el comprobante y registrarlo en planilla.txt.
 void Menu::procesarPago() {
 	string cedula, nombreDepto;
 	cout << "Cedula del empleado: "; cin >> cedula;
