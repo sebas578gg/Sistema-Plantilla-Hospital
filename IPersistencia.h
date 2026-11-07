@@ -1,3 +1,4 @@
+//realizado por Yeiner
 #ifndef IPERSISTENCIA_H
 #define IPERSISTENCIA_H
 #include <string>
