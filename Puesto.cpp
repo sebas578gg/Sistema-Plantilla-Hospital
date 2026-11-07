@@ -1,3 +1,5 @@
+//Puesto.h
+
 #include "Puesto.h"
 
 Puesto::Puesto(string n) : nombrePuesto(n) {}
