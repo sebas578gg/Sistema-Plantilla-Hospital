@@ -1,3 +1,8 @@
+
+// CLASE BASE ABSTRACTA:
+// No se puede instanciar directamente porque tiene metodos virtuales puros (= 0).
+// Sirve como molde comun para que Medico, Enfermero y Administrativo hereden sus atributos.
+
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 #include <string>
