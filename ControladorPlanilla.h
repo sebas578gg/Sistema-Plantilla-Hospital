@@ -1,3 +1,8 @@
+
+// Capa de Negocio / Controlador:
+// Procesa las operaciones de planilla y coordina la persistencia de datos.
+// Recibe un IPersistencia* por constructor (Inyeccion de Dependencias).
+
 #ifndef CONTROLADORPLANILLA_H
 #define CONTROLADORPLANILLA_H
 #include "Lista.h"
