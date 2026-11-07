@@ -1,3 +1,4 @@
+// Vincula las instancias existentes del empleado y depto con el monto neto a cobrar.
 #include "ComprobantePago.h"
 
 ComprobantePago::ComprobantePago(Empleado* e, Departamento* d, double m) : empleado(e), departamento(d), montoNeto(m) {}
