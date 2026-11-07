@@ -1,3 +1,6 @@
+
+// Constructor base: inicializa los datos comunes de todo empleado.
+
 #include "Empleado.h"
 
 Empleado::Empleado(string c, string n, double s) : cedula(c), nombre(n), salarioBase(s) {}
