@@ -1,3 +1,4 @@
+//Clse Derivada de Empleado.H
 #include "Administrativo.h"
 
 Administrativo::Administrativo(string c, string n, double s) : Empleado(c, n, s) {}
