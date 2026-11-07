@@ -1,3 +1,7 @@
+// Lista simple enlazada generica.
+// Maneja memoria dinamica con punteros, creciendo o encogiendose segun se necesite.
+
+
 #ifndef LISTA_H
 #define LISTA_H
 #include "Nodo.h"
