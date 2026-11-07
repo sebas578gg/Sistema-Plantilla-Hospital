@@ -1,3 +1,5 @@
+// Representa un puesto o cargo asignable a un departamento.
+
 #ifndef PUESTO_H
 #define PUESTO_H
 #include <string>
